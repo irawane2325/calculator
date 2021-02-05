@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculator View</title>
+
+ <script src="promptCalc.js"></script>
+</head>
+<h4>What's Fun  Math</h4> 
+<h4>Hello I am Lady and I am here to help you <br>
+    compute your calculations </h4>
+<body>
+        <p>
+            <strong>Rules:</strong> I can only assist you in two ways.<br>
+            First Option, if you want a quick calculation, <br>click the Prompt button
+            Second Option, <br>If you want something more interactive, <br>
+            than click the interactive button.
+
+        </p>
+
+    <div id="container1">
+
+        <div class="prompt">
+            <input type="button" value="prompt" id="prompt" onclick="calculate();"/>
+
+        </div>
+
+       <div class="calculator">
+           <input type="button" value="interactive" id="calc" onclick="openTab('container2');"/>
+          
+       </div>
+    </div>
+   
+    
+            
+       
+    <div id="container2" class="InterCalculator"  >
+            <span  class="closebtn" onclick="this.parentElement.style.display='none' ">X</span>
+               
+                   
+        <form name="form"  >
+                
+            <input type="text" placeholder="0" id="int" name="showOutput"/>
+
+            <div class="row1">
+                <input type="button" id ="op4" name="sqrt" value="√" onClick="showOutput.value=Math.sqrt(showOutput.value)">
+            </div>
+
+            <div class="row2">
+                    <input type="button" id ="integer"  name="btn9" value="9" onClick="output(btn9.value)">
+                    <input type="button" id ="integer"  name="btn8" value="8" onClick="output(btn8.value)">
+                    <input type="button" id ="integer"  name="btn7" value="7" onClick="output(btn7.value)">
+                <input type="button" id ="op1" name="addition" value="+" onClick="output(addition.value)">
+            </div>
+
+            <div class="row3">
+                    <input type="button" id ="integer"  name="btn6" value="6" onClick="output(btn6.value)">
+                <input type="button" id ="integer"  name="btn5" value="5" onClick="output(btn5.value)">
+                <input type="button" id ="integer"  name="btn4" value="4" onClick="output(btn4.value)">
+                <input type="button" id ="op2" name="subtract" value="-" onClick="output(subtract.value)">
+            </div>
+
+            <div class="row4">
+                <input type="button" id ="integer"  name="btn3" value="3" onClick="output(btn3.value)">
+                <input type="button" id ="integer"  name="btn2" value="2" onClick="output(btn2.value)">
+                <input type="button" id ="integer"  name="btn1" value="1" onClick="output(btn1.value)">
+                <input type="button" id ="op3" name="multiply" value="*" onClick="output(multiply.value)">
+               
+               
+               
+            </div>
+
+            <div class = "row5">
+                    <input type="button" id ="op5" name="deci" value="." onClick="output(deci.value)">
+                <input type="button" id ="integer" name="btn0" value="0" onClick="output(btn0.value)">
+                <input type="button" id = "equal" value="=" onClick="showOutput.value=eval(showOutput.value)">
+                
+            </div>
+
+        </form>
+        
+
+    </div>
+
+    <script>
+            //one line of function that does all the calculations
+            function output(result){
+                form.showOutput.value=form.showOutput.value+result;
+    
+            }
+
+            //this function opens the interactive calculator
+            function openTab(tabName) {
+                var i, x;
+                 x = document.getElementsByClassName("InterCalculator");
+                 for (i = 0; i < x.length; i++) {
+                     x[i].style.display = "none";
+                 }
+                 document.getElementById(tabName).style.display = "flex";
+            }
+
+
+    
+    </script>
+
+
+
+
+
+
+
+
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Cantarell&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+
+        body {
+            background-image: url("dJosefKey.jpg");
+            background-repeat: no-repeat;
+            background-size:cover;
+          
+        }
+
+
+
+
+        #int {
+            font-size: 15px;
+        }
+
+
+      
+       .closebtn {
+           text-align: right;
+           cursor: pointer;
+           background-color:rgba(255, 213, 0, 0.62);
+           border-radius:10px 10px 10px 10px;
+           height: 20px;
+           width:10%;
+           margin-left:-5%;
+           margin-top:-20%;
+           padding:2%;
+           
+          
+           
+        }
+
+        .row1 , .row2 , .row3 , .row4 , .row5 {
+            display: flex;
+            flex-direction: row;
+        }
+
+
+        #integer ,  #op1 , #op2 , #op3 , #op4 , #op5 , #equal{
+            height:50px;
+            width: 80%;
+            background-color: rgba(165, 112, 42, 0.34);
+            color:wheat;
+            border-radius: 10px 10px 10px 10px;
+
+        }
+
+
+        #integer:hover {
+            border-color: rgba(0, 0, 0, 0.37);
+            background-color: rgba(218, 162, 32, 0.49);
+            color:aliceblue;
+        }
+
+        #op1:hover{
+            color:aliceblue;
+            background-color: rgba(192, 192, 192, 0.56);
+        }
+
+        #op2:hover{
+            color:aliceblue;
+            background-color: rgba(192, 192, 192, 0.56);
+        }
+
+        #op3:hover {
+            color:aliceblue;
+            background-color: rgba(192, 192, 192, 0.56);
+        }
+
+        #op4:hover {
+            color:aliceblue;
+            background-color: rgba(192, 192, 192, 0.56);
+        }
+
+        #op5:hover {
+            color:aliceblue;
+            background-color: rgba(192, 192, 192, 0.56);
+        }
+
+        #equal:hover {
+            color:aliceblue;
+            background-color: rgba(192, 192, 192, 0.56);
+        }
+
+
+            
+       #container2 #int {
+            width: 100%;
+        }
+
+
+
+    h4{
+        text-align: left;
+        margin-left:10%;
+        font-family:"Monoton";
+        color:rgba(255, 213, 0, 0.76);
+        letter-spacing: 5px;
+        
+        
+    }
+    p {
+        font-family:"Cantarell";
+        color:whitesmoke;
+        margin-left:5%;
+        letter-spacing: 5px;
+        
+    }
+
+    #container1{
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        width:15%;
+        padding: 10%;
+        margin-left: -5%;
+        
+    }
+
+    #container1 input{
+        background-color: rgba(192, 192, 192, 0);
+        font-size: 20px;
+        margin-top:2%;
+        color:rgb(252, 2, 2);
+    }
+    
+        #container2 {
+        height: 200px;
+        width:12%;
+        padding: 10%;
+        margin-left: 45%;
+        margin-top: -40%;
+        box-shadow: 8px 4px 8px 4px rgba(0, 0, 0, 0.55);
+        border:2px;
+        border-style: solid;
+        border-color: rgba(199, 198, 198, 0.18);
+        
+    }
+
+    
+    #container2 input{
+        height:50px;
+        background-color: rgba(128, 128, 128, 0.48);
+        color:whitesmoke;
+        
+        
+    }
+
+     input{
+         margin: 2%;
+        height: 100px;
+        width: 106%;
+        border-style: solid;
+        border-color: rgba(128, 128, 128, 0.47);
+        border-radius: 10px 10px 10px 10px;
+        cursor:pointer;
+        
+    }
+
+    #container1 input:hover{
+        border-color:rgba(255, 0, 0, 0.43);
+        color:rgba(255, 213, 0, 0.57);
+        background-color: rgba(202, 118, 118, 0.32);
+        
+       
+    }
+
+
+    #calc {
+        margin-top:2%;
+    }
+
+    form {
+        margin-top:-35%;
+        width:100%;
+        margin-left:5%;
+
+    }
+
+    
+
+
+
+    </style>
+    
+</body>
+</html>
